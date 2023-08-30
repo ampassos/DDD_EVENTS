@@ -1,25 +1,26 @@
 import Notification from "./notification";
 
-describe("Unit testss for notifications", () => {
+describe("Unit tests for notifications product", () => {
+
   it("should create errors", () => {
     const notification = new Notification();
     const error = {
       message: "error message",
-      context: "customer",
+      context: "product",
     };
 
     notification.addError(error);
 
-    expect(notification.messages("customer")).toBe("customer: error message,");
+    expect(notification.messages("product")).toBe("product: error message,");
 
     const error2 = {
       message: "error message2",
-      context: "customer",
+      context: "product",
     };
     notification.addError(error2);
 
-    expect(notification.messages("customer")).toBe(
-      "customer: error message,customer: error message2,"
+    expect(notification.messages("product")).toBe(
+      "product: error message,product: error message2,"
     );
 
     const error3 = {
@@ -28,11 +29,11 @@ describe("Unit testss for notifications", () => {
     };
     notification.addError(error3);
 
-    expect(notification.messages("customer")).toBe(
-      "customer: error message,customer: error message2,"
+    expect(notification.messages("product")).toBe(
+      "product: error message,product: error message2,"
     );
     expect(notification.messages()).toBe(
-      "customer: error message,customer: error message2,order: error message3,"
+      "product: error message,product: error message2,order: error message3,"
     );
   });
 
@@ -40,7 +41,7 @@ describe("Unit testss for notifications", () => {
     const notification = new Notification();
     const error = {
       message: "error message",
-      context: "customer",
+      context: "product",
     };
     notification.addError(error);
 
@@ -51,10 +52,9 @@ describe("Unit testss for notifications", () => {
     const notification = new Notification();
     const error = {
       message: "error message",
-      context: "customer",
+      context: "product",
     };
     notification.addError(error);
-
     expect(notification.getErrors()).toEqual([error]);
   });
 });
