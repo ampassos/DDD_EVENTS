@@ -42,7 +42,6 @@ describe("Test find product use case", () => {
     };
 
     const result = await usecase.execute(input);
-
     expect(result).toEqual(output);
   });
 });
